@@ -1,0 +1,70 @@
+{
+  "private": true,
+  "name": "@polskycenter/bnv-api",
+  "description": "Building the New Venture Calculators - RESTful HTTP API",
+  "version": "0.0.0",
+  "license": "ISC",
+  "author": {
+    "name": "Polsky Center for Entrepreneurship and Innovation",
+    "url": "https://github.com/polskycenter"
+  },
+  "contributors": [
+    {
+      "name": "Kurt Ericson",
+      "email": "github@kurttheviking.com",
+      "url": "https://github.com/kurttheviking"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polskycenter/bnv-api"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "6"
+  },
+  "dependencies": {
+    "basic-auth": "2.0.0",
+    "body-parser": "1.18.2",
+    "boom": "6.0.0",
+    "bs58": "4.0.1",
+    "debug": "3.1.0",
+    "ejs": "2.5.7",
+    "es6-promisify": "5.0.0",
+    "express": "4.16.2",
+    "fast-json-patch": "2.0.5",
+    "has": "1.0.1",
+    "helmet": "3.9.0",
+    "hpp": "0.2.2",
+    "is-plain-object": "2.0.4",
+    "jsonwebtoken": "8.1.0",
+    "middle-pinger": "1.0.0",
+    "moment": "2.19.1",
+    "morgan": "1.9.0",
+    "ms": "2.0.0",
+    "node-ses": "2.0.5",
+    "pg": "7.3.0",
+    "pg-safe-numbers": "0.7.0",
+    "require-directory": "2.1.1",
+    "round-to": "2.0.0",
+    "sequelize": "4.13.15",
+    "sequelize-cockroachdb": "1.0.2"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "15.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "istanbul": "0.4.5",
+    "mocha": "3.5.3",
+    "mocha-eslint": "4.1.0",
+    "mockery": "2.1.0",
+    "nodemon": "1.12.1",
+    "sinon": "4.0.1"
+  },
+  "scripts": {
+    "coverage": "./node_modules/istanbul/lib/cli.js cover --report=json-summary --report=html _mocha ./test -- --recursive",
+    "dev": "DEBUG=@polskycenter* nodemon index",
+    "test": "node node_modules/mocha/bin/mocha ./test --recursive"
+  }
+}
