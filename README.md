@@ -156,7 +156,7 @@ By default, emailed links are resolved directly by the API. This is useful for a
 - [`get`](./docs/scenarios/get.md)
 - [`list`](./docs/scenarios/list.md)
 - [`update`](./docs/scenarios/update.md)
-- actions
+- Actions
     - [`delete`](./docs/scenarios/actions/delete.md)
     - [`post`](./docs/scenarios/actions/post.md)
     - [`update`](./docs/scenarios/actions/update.md)
