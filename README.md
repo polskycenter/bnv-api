@@ -120,15 +120,15 @@ By default, emailed links are resolved directly by the API. This is useful for a
 
 | Code  | Description |
 | :---- | :---------- |
-| `200` | The request succeeded; a representation of the resource may be provided in the response (for `POST` requests, data is returned immediately rather than via a `303` redirect) |
-| `201` | The request succeeded and a resource was modified; a representation of the resource may be provided in the response body |
+| `200` | The request succeeded; a representation of the resource may be provided in the response |
+| `201` | The request succeeded and a resource was modified; a representation may be provided in the response body |
 | `301` | Permanent redirect |
 | `302` | Temporary redirect |
 | `304` | The request was valid but the underlying resource was not modified; additional information may be provided in the response body |
 | `400` | Invalid request; missing or incorrectly formatted parameters |
 | `401` | Unauthorized; invalid, missing, or expired authorization key |
 | `403` | Forbidden; the requester does not have access to the underlying resource |
-| `404` | Not found; the requested resource does not exist, cannot be located, or is not within the authorization scope of the requester |
+| `404` | Not found; the requested resource does not exist, cannot be located, or is not within the authorization scope |
 | `409` | Conflict; the resource cannot be modified due to a state-based restriction |
 | `410` | Gone; the resource cannot be accessed or modified because it has been inactivated, terminated, or removed |
 | `422` | Bad request; correctly formatted but invalid parameters |
