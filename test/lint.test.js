@@ -9,6 +9,7 @@ const options = {
 };
 
 const paths = [
+  'index.js',
   'lib'
 ];
 
