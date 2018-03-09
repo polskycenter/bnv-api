@@ -4,20 +4,13 @@
   "description": "Building the New Venture Calculators - RESTful HTTP API",
   "version": "1.0.0",
   "license": "ISC",
-  "author": {
-    "name": "Polsky Center for Entrepreneurship and Innovation",
-    "url": "https://github.com/polskycenter"
-  },
+  "author": "Polsky Center for Entrepreneurship and Innovation (https://github.com/polskycenter)",
   "contributors": [
-    {
-      "name": "Kurt Ericson",
-      "email": "github@kurttheviking.com",
-      "url": "https://github.com/kurttheviking"
-    }
+    "Kurt Ericson <github@kurttheviking.com> (https://github.com/kurttheviking)"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/polskycenter/bnv-api"
+    "url": "git+https://github.com/polskycenter/bnv-api.git"
   },
   "main": "index.js",
   "engines": {
@@ -66,5 +59,14 @@
     "coverage": "./node_modules/istanbul/lib/cli.js cover --report=json-summary --report=html _mocha ./test -- --recursive",
     "dev": "DEBUG=@polskycenter* nodemon index",
     "test": "node node_modules/mocha/bin/mocha ./test --recursive"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/polskycenter/bnv-api/issues"
+  },
+  "homepage": "https://github.com/polskycenter/bnv-api#readme",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "keywords": []
 }
