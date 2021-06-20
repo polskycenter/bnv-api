@@ -2,7 +2,7 @@
   "private": true,
   "name": "@polskycenter/bnv-api",
   "description": "Building the New Venture Calculators - RESTful HTTP API",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "license": "ISC",
   "author": "Polsky Center for Entrepreneurship and Innovation (https://github.com/polskycenter)",
   "contributors": [
