@@ -9,50 +9,25 @@ Building the New Venture Calculators: RESTful HTTP API
 ### Prerequisites
 
 - [AWS SES](https://aws.amazon.com/ses/) and associated IAM credentials
-- [CockroachDB](https://www.cockroachlabs.com/docs/stable/install-cockroachdb.html) in secure cluster mode
-- [Node.js 6.x](https://nodejs.org/en/download/)
+- [SQLite3](https://www.sqlite.org/index.html)
+- [Node.js 14.x+](https://nodejs.org/en/download/)
 
 ### Install
 
-First, prepare the database. Change the `certs-dir` parameter as needed. Create an `api` user to run the API. In addition, create an `admin` user to perform initial setup, database migrations, etc.
-
-```sh
-cockroach user set api --certs-dir=/opt/cockroachdb/tls/certs --password
-cockroach cert create-client api --certs-dir=/opt/cockroachdb/tls/certs --ca-key=/opt/cockroachdb/tls/keys/ca.key
-
-cockroach user set admin --certs-dir=/opt/cockroachdb/tls/certs --password
-cockroach cert create-client admin --certs-dir=/opt/cockroachdb/tls/certs --ca-key=/opt/cockroachdb/tls/keys/ca.key
-```
-
-Then, create an empty database and establish `admin` permissions:
-
-```sh
-cockroach sql --certs-dir=/opt/cockroachdb/tls/certs
-```
-
-```sql
-CREATE DATABASE bnv;
-SET DATABASE = bnv;
-GRANT ALL ON DATABASE bnv TO admin;
-GRANT ALL ON TABLE * TO admin;
-```
-
-Next, set environment parameters. During initial setup, use the `admin` user and password within the `BNV__COCKROACHDB` string.
+First, set environment parameters for the following:
 
 | Variable                | Description |
 | :---------------------- | :------------- |
 | `BNV__AWS_KEYID`        | AWS Key ID for use with SES |
 | `BNV__AWS_SECRET`       | AWS Secret Access Key associated with the Key ID |
 | `BNV__AWS_SES_EMAIL`    | Email address authorized to send sign-in and account confirmation emails |
-| `BNV__COCKROACHDB_CERT` | Full local path to CockroachDB CA certificate |
-| `BNV__COCKROACHDB`      | CockroachDB connection string (PostgreSQL protocol) |
 | `BNV__ENVIRONMENT`      | `production`, `test`, or `dev` |
 | `BNV__HOST_API`         | The scheme and authority hosting the BNV web API |
 | `BNV__HOST_CLIENT`      | The scheme and authority hosting the BNV web client |
 | `BNV__SECRET`           | Cryptographically-strong string used to sign JWT tokens |
 | `NODE_ENV`              | `production` or any other string; `production` squelches debug logging |
 
-Now, clone the repository:
+Clone the repository:
 
 ```sh
 git clone git@github.com:polskycenter/bnv-api.git
@@ -65,21 +40,10 @@ cd bnv-api
 npm install
 ```
 
-Run migrations in `./etc/database`. The initial setup script, `1.0.0.js`, creates the first user account with all permissions enabled so that all future users can be created by the API itself. Update the parameters found in that script (e.g. `email`) as appropriate prior to execution.
+Run migrations in `./etc/database`. The current setup script, `2.0.0.js`, creates the first user account with all permissions enabled so that all future users can be created by the API itself. Update the parameters found in that script (e.g. `email`) as appropriate prior to execution.
 
 ```sh
-node ./etc/database/1.0.0.js
-```
-
-Set database permissions for the `api` user:
-
-```sh
-cockroach sql --certs-dir=/opt/cockroachdb/tls/certs
-```
-
-```sql
-SET DATABASE = bnv;
-GRANT SELECT, INSERT, UPDATE ON TABLE * TO api;
+node ./etc/database/2.0.0.js
 ```
 
 Finally, start the service:

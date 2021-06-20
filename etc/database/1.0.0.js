@@ -7,8 +7,7 @@ const Session = require('../../lib/models/Session');
 
 Promise.all([
   Account.sync({ force: true })
-])
-.then(() => Promise.all([
+]).then(() => Promise.all([
   Account.create({
     name: 'Foo Baz',
     email: 'foo@baz.com',
@@ -17,9 +16,7 @@ Promise.all([
   }).then(account => account.confirm()),
   Scenario.sync({ force: true }),
   Session.sync({ force: true })
-]))
-.then(() => Promise.all([
+])).then(() => Promise.all([
   ScenarioAction.sync({ force: true }),
   Session.sync({ force: true })
-]))
-.then(() => database.close());
+])).then(() => database.close());
