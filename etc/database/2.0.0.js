@@ -13,5 +13,14 @@ const Session = require('../../lib/models/Session');
   await Scenario.sync({ force: true });
   await ScenarioAction.sync({ force: true });
 
+  const account = await Account.create({
+    name: 'Example Admin',
+    email: 'example.admin@test.com',
+    isBuilder: true,
+    isManager: true
+  });
+
+  await account.confirm()
+
   database.close();
 })();
