@@ -25,7 +25,7 @@ First, set environment parameters for the following:
 | `BNV__HOST_API`         | The scheme and authority hosting the BNV web API |
 | `BNV__HOST_CLIENT`      | The scheme and authority hosting the BNV web client |
 | `BNV__SECRET`           | Cryptographically-strong string used to sign JWT tokens |
-| `BNV__SQLITES`          | Path to SQLite3 database file |
+| `BNV__SQLITE`           | Path to SQLite3 database file |
 | `NODE_ENV`              | `production` or any other string; `production` squelches debug logging |
 
 Clone the repository:
